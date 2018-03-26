@@ -10,36 +10,47 @@ public class Stock {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-
     private Integer stock;
-
     private Integer article;
+    private String name;
+    
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public Integer setId(Integer id) {
 		this.id = id;
+		return id;
 	}
 
 	public Integer getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
+	public Integer setStock(Integer stock) {
 		this.stock = stock;
+		return stock;
 	}
 
 	public Integer getArticle() {
 		return article;
 	}
 
-	public void setArticle(Integer article) {
+	public Integer setArticle(Integer article) {
 		this.article = article;
+		return article;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
-
-    
+	public String setName(String name) {
+		this.name = name;
+		return name;
+	}
+ 
+	
 }
 

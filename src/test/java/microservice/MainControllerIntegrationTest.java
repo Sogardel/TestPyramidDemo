@@ -15,7 +15,7 @@ public class MainControllerIntegrationTest {
 	public String URL1 = "http://localhost:8080/demo/addArticle?article="+ARTICLE+"&stock="+STOCK;
 	public String URL2 = "http://localhost:8080/demo/getArticle";
 	public static String output_for_add = "Stock succesfuly saved for article = "+ARTICLE;
-	public static String output_for_get = "[{\"id\":1,\"stock\":"+STOCK+",\"article\":"+ARTICLE+"}]";
+	public static String output_for_get = "[{\"id\":8,\"stock\":"+STOCK+",\"article\":"+ARTICLE+"}]";
 	@Test
 	public void testAddAdrticleWithStock() {
 		final Response response =  RestAssured.given()
@@ -39,4 +39,5 @@ public class MainControllerIntegrationTest {
 	    System.out.println (response.asString());		
 		assertTrue(response.asString().equals(output_for_get));
 	}
+
 }

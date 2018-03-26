@@ -3,12 +3,13 @@ package microservice;
 
 
 import org.apache.http.HttpStatus;
-import org.junit.Assert;
-import org.junit.Test;
-
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
+import org.junit.Test;
+
+
 
 public class MainControllerSanityTest {
 	
@@ -20,7 +21,6 @@ public class MainControllerSanityTest {
 	     
 		RestAssured.given()
 	       .contentType(ContentType.JSON)
-	      // .body(input)
 	       .get(URL)
 	       .then()
 	              .statusCode(HttpStatus.SC_OK);
@@ -30,7 +30,6 @@ public class MainControllerSanityTest {
 		public void testCorrectHttpMethodNotAllowedPUT()	{
 	       RestAssured.given()
 	       .contentType(ContentType.JSON)
-	       //.body(input)
 	       .put(URL)
 	       .then()
 	       		.statusCode(HttpStatus.SC_METHOD_NOT_ALLOWED);
@@ -52,7 +51,6 @@ public class MainControllerSanityTest {
 	       
 	       RestAssured.given()
 	       .contentType(ContentType.JSON)
-	    //   .body(input)
 	       .post(URL)
 	       .then()
 	              .statusCode(HttpStatus.SC_METHOD_NOT_ALLOWED);
@@ -62,15 +60,11 @@ public class MainControllerSanityTest {
 		public void testResponse() {
 			final Response response =  RestAssured.given()
 					.contentType(ContentType.JSON)
-					//.body(input01)
 					.get(URL)
 					.then()
 					.extract()
 					.response();
-		    System.out.println (response.asString().length());		
-		    System.out.println(response.getStatusCode());
-		   // AssertTrue(response.asString().length() != 2);
-		    Assert.assertEquals(response.asString().length(), 4);
+		    Assert.assertEquals(response.asString().length(), 2);
 		}
 
 
